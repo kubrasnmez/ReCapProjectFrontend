@@ -1,8 +1,23 @@
-<table class = "table">
-    <tr *ngFor = "let product of products">
-        <td>{{product.productId}}</td>
-        <td>{{product.productName}}</td>
-        <td>{{product.categoryId}}</td>
-        <td>{{product.unitPrice}}</td>
-    </tr>
+<div *ngIf = "dataLoaded == false" class="spinner-border text-info" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+<table *ngIf = "dataLoaded == true" class = "table">
+    <thead>
+        <tr>
+        <th>Id</th>
+        <th>Marka Id</th>
+        <th>Renk Id</th>
+        <th>Model Yılı</th>
+        <th>GünlükFiyatı</th>
+        <th>Açıklama</th>
+        </tr>
+    </thead>
+     <tr *ngFor = "let car of cars">
+         <td>{{car.carId}}</td>
+         <td>{{car.brandId}}</td>
+         <td>{{car.colorId}}</td>
+         <td>{{car.modelYear}}</td>
+         <td>{{car.dailyPrice}} ₺</td>
+         <td>{{car.description}}</td>
+     </tr>
 </table>

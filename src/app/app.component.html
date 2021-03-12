@@ -4,15 +4,18 @@
     <link rel="stylesheet" src = "app.component.css">
   </head>
   <body>
-    <!-- <h2>Welcome to {{title}}</h2>
-    <h4>Hello {{user}}</h4>
-    <ul>
-      <li *ngFor = "let product of products">{{product.productName}}</li>
-  </ul> -->
 </body>
 </html>
-<app-navi></app-navi>
-<app-brand></app-brand>
-<app-car></app-car>
 
-<router-outlet></router-outlet>
+<app-navi></app-navi>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+  <app-brand></app-brand>
+  </div>
+  <div class="col-md-9">
+  <app-car></app-car>
+  </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>
