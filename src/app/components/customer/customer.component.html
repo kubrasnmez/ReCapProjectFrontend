@@ -1,1 +1,7 @@
-<p>customer works!</p>
+<table class="table">
+    <tr *ngFor = "let customer of customers">
+      <td>{{customer.customerId}}</td>
+      <td>{{customer.userId}}</td>
+      <td>{{customer.companyName}}</td>
+  </tr>
+  </table>
