@@ -8,7 +8,7 @@ import { CustomerResponseModel } from '../models/customerResponseModel';
 })
 export class CustomerService {
 
-  apiUrl = "https://localhost:44359/api/customers/getall"
+  apiUrl = "https://localhost:44359/api/customers/getcustomerdetail"
 
   constructor(private httpClient : HttpClient) { }
 

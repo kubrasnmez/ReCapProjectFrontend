@@ -1,5 +1,11 @@
-<table class="table">
-    <tr *ngFor = "let color of colors">
+<table class="table table-bordered">
+  <thead style="background-color:#bc8f8f;">
+    <tr>
+      <th>Renk Id</th>
+      <th>Renk Adı</th>
+    </tr>
+  </thead>
+    <tr *ngFor = "let color of colors" style="background-color:rgb(228, 228, 228);">
       <td>{{color.colorId}}</td>
       <td>{{color.colorName}}</td>
   </tr>

@@ -1,7 +1,18 @@
-<table class="table">
-    <tr *ngFor = "let customer of customers">
+<table class="table table-bordered">
+  <thead style="background-color:#bc8f8f;">
+    <tr>
+      <th>Müşteri Id</th>
+      <th>Müşteri Adı </th>
+      <th>Müşteri Soyadı </th>
+      <th>Şirket Adı</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+    <tr *ngFor = "let customer of customers" style="background-color:rgb(228, 228, 228);">
       <td>{{customer.customerId}}</td>
-      <td>{{customer.userId}}</td>
+      <td>{{customer.firstName}}</td>
+      <td>{{customer.lastName}}</td>
       <td>{{customer.companyName}}</td>
+      <td>{{customer.email}}</td>
   </tr>
   </table>

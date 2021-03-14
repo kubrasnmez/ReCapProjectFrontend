@@ -1,8 +1,17 @@
-<table class="table">
-    <tr *ngFor = "let rental of rentals">
+<table class="table table-bordered">
+  <thead style="background-color:#bc8f8f;">
+    <tr>
+      <th>Kira Id</th>
+      <th>Marka Adı</th>
+      <th>Müşteri Adı ve Soyadı</th>
+      <th>Kiralama Tarihi</th>
+      <th>Teslim Tarihi</th>
+    </tr>
+  </thead>
+    <tr *ngFor = "let rental of rentals" style="background-color:rgb(228, 228, 228);">
       <td>{{rental.rentalId}}</td>
-      <td>{{rental.carId}}</td>
-      <td>{{rental.customerId}}</td>
+      <td>{{rental.brandName}}</td>
+      <td>{{rental.customerName}}</td>
       <td>{{rental.rentDate}}</td>
       <td>{{rental.returnDate}}</td>
   </tr>

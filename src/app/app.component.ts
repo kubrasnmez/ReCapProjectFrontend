@@ -9,5 +9,4 @@ export class AppComponent {
   title = 'recapproject';
   user: string = "kubrasonmez";
 
-  
 }

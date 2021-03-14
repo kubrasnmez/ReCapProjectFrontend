@@ -1,8 +1,8 @@
 <div *ngIf = "dataLoaded == false" class="spinner-border text-info" role="status">
     <span class="sr-only">Loading...</span>
   </div>
-<table *ngIf = "dataLoaded == true" class = "table">
-    <thead>
+<table *ngIf = "dataLoaded == true" class = "table table-bordered">
+    <thead style="background-color:#bc8f8f;">
         <tr>
         <th>Id</th>
         <th>Marka Id</th>
@@ -12,10 +12,10 @@
         <th>Açıklama</th>
         </tr>
     </thead>
-     <tr *ngFor = "let car of cars">
+     <tr *ngFor = "let car of cars" style="background-color:rgb(228, 228, 228);">
          <td>{{car.carId}}</td>
          <td>{{car.brandName}}</td>
-         <td>{{car.colorId}}</td>
+         <td>{{car.colorName}}</td>
          <td>{{car.modelYear}}</td>
          <td>{{car.dailyPrice}} ₺</td>
          <td>{{car.description}}</td>
