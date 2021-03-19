@@ -12,3 +12,10 @@ table, td {
 th{
     border:2px solid #ab7777;
 }
+.cursorPointer{
+    cursor: pointer;
+}
+
+#image{
+    vertical-align: middle;
+}

@@ -1,12 +1,13 @@
-<table class="table table-bordered">
-  <thead style="background-color:#bc8f8f;">
-    <tr>
-    <th>Marka Id</th>
-    <th>Marka Adı</th>
-    </tr>
-  </thead>
-  <tr *ngFor = "let brand of brands" style="background-color:rgb(228, 228, 228);">
-    <td>{{brand.brandId}}</td>
-    <td>{{brand.brandName}}</td>
-</tr>
-</table>
+<ul class="list-group">
+  <li 
+  routerLink="/cars" 
+  [class]="getAllBrandClass()" >Tümü</li>
+
+  <li 
+  (click)="setCurrentBrand(brand)"
+  routerLink="/cars/brand/{{brand.brandId}}"
+   *ngFor="let brand of brands" [class]="getCurrentBrandClass(brand)">
+    {{brand.brandName}}
+  </li>
+</ul>
+<br><br>

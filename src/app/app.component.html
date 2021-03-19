@@ -9,10 +9,22 @@
 <app-navi></app-navi>
 <br><br>
 <div class="container">
-  <div class="row">
+  <!--  <div class="row">
     <div class="col-md-12">
       <app-tab></app-tab>
   </div>
+  </div>-->
+
+  <div class ="row">
+    <div class="col-md-3">
+      <app-brand></app-brand>
+      <app-color></app-color>
+    </div>
+    <div class="col-md-9">
+      <div class="body">
+      <router-outlet></router-outlet></div>
+    </div>
+
   </div>
-  <router-outlet></router-outlet>
+
 </div>

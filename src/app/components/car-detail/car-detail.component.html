@@ -1,0 +1,96 @@
+<!--<div class="card">
+  <div class="card-body"> 
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div *ngFor="let image of images let i = index" [ngClass]="getSliderClassName(i)">
+              <img src="{{imageUrl}}/{{image.imagePath}}" class="d-block w-100" width="800" height="400" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+      <table class="table m-1">
+        <thead>
+          <tr>
+            <th scope="col" style="background-color: rgb(174, 204, 214); border-radius: 10px">Brand</th>
+            <th scope="col" style="background-color: rgb(148, 199, 218); border-radius: 10px">Color</th>
+            <th scope="col" style="background-color: rgb(146, 214, 236); border-radius: 10px">Model Year</th>
+            <th scope="col" style="background-color: rgb(116, 207, 238); border-radius: 10px">Daily Price</th>
+            <th scope="col" style="background-color: rgb(98, 217, 250); border-radius: 10px">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td>{{ car.brandName }}</td> 
+            <td>{{ car.colorName}}</td>
+            <td>{{ car.modelYear }}</td>
+            <td>{{ car.dailyPrice }}</td>
+            <td>{{ car.description }}</td>
+        </tbody>
+      </table>
+      <button
+      routerLink="/cars"
+      (click)="getBack()"
+      type="button"
+      aria-current="true"
+      class="btn btn-info float-end"
+      >
+      Get Back
+      </button> 
+  </div>
+</div>
+-->
+
+<div class="card">
+  <div class="card-body"> 
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div *ngFor="let image of images let i = index" [ngClass]="getSliderClassName(i)">
+              <img src="{{imageUrl}}/{{image.imagePath}}" class="d-block w-100" width="800" height="400" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+      </div>
+      <table class="table m-1">
+        <thead>
+          <tr>
+            <th scope="col" style="background-color: rgb(174, 204, 214); border-radius: 10px">Brand</th>
+            <th scope="col" style="background-color: rgb(148, 199, 218); border-radius: 10px">Color</th>
+            <th scope="col" style="background-color: rgb(146, 214, 236); border-radius: 10px">Model Year</th>
+            <th scope="col" style="background-color: rgb(116, 207, 238); border-radius: 10px">Daily Price</th>
+            <th scope="col" style="background-color: rgb(98, 217, 250); border-radius: 10px">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars">
+            <td>{{ car.brandName }}</td> 
+            <td>{{ car.colorName}}</td>
+            <td>{{ car.modelYear }}</td>
+            <td>{{ car.dailyPrice }}</td>
+            <td>{{ car.description }}</td>
+        </tbody>
+      </table>
+      <button
+      routerLink="/cars"
+      (click)="getBack()"
+      type="button"
+      aria-current="true"
+      class="btn btn-info float-end"
+      >
+      Get Back
+      </button> 
+  </div>
+</div>

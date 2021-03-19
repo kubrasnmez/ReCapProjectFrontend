@@ -1,12 +1,10 @@
-<table class="table table-bordered">
-  <thead style="background-color:#bc8f8f;">
-    <tr>
-      <th>Renk Id</th>
-      <th>Renk Adı</th>
-    </tr>
-  </thead>
-    <tr *ngFor = "let color of colors" style="background-color:rgb(228, 228, 228);">
-      <td>{{color.colorId}}</td>
-      <td>{{color.colorName}}</td>
-  </tr>
-  </table>
+
+  <ul class="list-group">
+    <li [class]="getAllColorClass()" routerLink = "/cars">Tüm renkler</li>
+    <li (click)="setCurrentColor(color)" 
+    routerLink="/cars/color/{{color.colorId}}"
+    *ngFor="let color of colors"
+    [class]="getCurrentColorClass(color)">{{color.colorName}}</li>
+  </ul>
+  
+  
