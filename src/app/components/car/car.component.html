@@ -1,25 +1,24 @@
 
-<table  class = "table table-bordered">
+<table  class = "table table-hover  table-bordered">
     <thead style="background-color:#bc8f8f;">
         <tr>
         <th>Id</th>
-        <th>Marka Id</th>
-        <th>Renk Id</th>
+        <th>Marka İsmi</th>
+        <th>Renk İsmi</th>
         <th>Model Yılı</th>
-        <th>GünlükFiyatı</th>
+        <th>Günlük Fiyatı</th>
         <th>Açıklama</th>
         </tr>
     </thead>
+    <tbody>
      <tr *ngFor = "let car of cars" 
-     (click)="setCurrentCar(car)"
-     routerLink = "/cars/details/{{car.carId}}"
-     [class]="getCarClass(car)" style="background-color:rgb(228, 228, 228);">
+     style="background-color:rgb(228, 228, 228);">
          <td>{{car.carId}}</td>
          <td>{{car.brandName}}</td>
          <td>{{car.colorName}}</td>
          <td>{{car.modelYear}}</td>
          <td>{{car.dailyPrice}} ₺</td>
          <td>{{car.description}}</td>
-         <td><button type="button" class="btn btn-success ms-3">Rent this car</button></td>
      </tr>
+     </tbody>
 </table>

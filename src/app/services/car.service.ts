@@ -19,7 +19,7 @@ export class CarService {
   //subscribe olunabilir bir response model dönüceksin
   getCars():Observable<ListResponseModel<Car>>{
     //gelen datayı CarResponseModel ' a map edeceksin.
-    let newPath = this.apiUrl + "cars/getcardetails"
+    let newPath = this.apiUrl + "cars/getcardetail"
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
   getCarsByBrand(brandId:number):Observable<ListResponseModel<Car>>{
@@ -30,8 +30,8 @@ export class CarService {
     let newPath = this.apiUrl + "cars/getcarsbycolorid?colorId="+colorId
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
-  getCarDetail(carId:number):Observable<ListResponseModel<Car>>{
-    let newPath = this.apiUrl + 'cars/getcardetailbyid?carId='+carId;
-    return this.httpClient.get<ListResponseModel<Car>>(newPath)
+  getCarByBrandAndColor(brandId:Number,colorId:Number):Observable<ListResponseModel<Car>>{
+    let newPath = this.apiUrl +`cars/getbybrandandcolor?brandId=${brandId}&colorid=${colorId}`;
+    return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
 }

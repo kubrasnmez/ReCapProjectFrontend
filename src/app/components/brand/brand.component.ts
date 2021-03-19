@@ -16,7 +16,7 @@ export class BrandComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBrands();
-    this.getAllBrandClass();
+  
   }
 
   getBrands(){

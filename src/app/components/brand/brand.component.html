@@ -1,13 +1,13 @@
 <ul class="list-group">
-  <li 
-  routerLink="/cars" 
-  [class]="getAllBrandClass()" >Tümü</li>
-
+  <li [ngClass] = "getAllBrandClass()"
+  routerLink="/cars">Tüm Markalar</li>
   <li 
   (click)="setCurrentBrand(brand)"
   routerLink="/cars/brand/{{brand.brandId}}"
-   *ngFor="let brand of brands" [class]="getCurrentBrandClass(brand)">
+   *ngFor="let brand of brands" 
+   [ngClass]="getCurrentBrandClass(brand)">
     {{brand.brandName}}
   </li>
 </ul>
+<h5 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h5>
 <br><br>
