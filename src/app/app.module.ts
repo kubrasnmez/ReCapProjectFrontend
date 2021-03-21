@@ -12,6 +12,8 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { TabComponent } from './components/tab/tab.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
+
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
     RentalComponent,
     TabComponent,
     VatAddedPipe,
+    CarDetailComponent,
 
   ],
   imports: [
