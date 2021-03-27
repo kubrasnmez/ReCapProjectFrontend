@@ -12,7 +12,7 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { TabComponent } from './components/tab/tab.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
-import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { CarDetailComponent } from './components/car/carDetail/car-detail.component';
 
 
 
@@ -28,7 +28,6 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
     TabComponent,
     VatAddedPipe,
     CarDetailComponent,
-
   ],
   imports: [
     BrowserModule,

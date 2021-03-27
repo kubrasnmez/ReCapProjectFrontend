@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Car } from '../models/car';
-import { CarDetails } from '../models/carDetails';
 import { ListResponseModel } from '../models/listResponseModel';
 
 
@@ -21,7 +20,7 @@ export class CarService {
   //subscribe olunabilir bir response model dönüceksin
   getCars():Observable<ListResponseModel<Car>>{
     //gelen datayı CarResponseModel ' a map edeceksin.
-    let newPath = this.apiUrl + "cars/getcardetail"
+    let newPath = this.apiUrl + "cars/getcardetails"
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
   getCarsByBrand(brandId:number):Observable<ListResponseModel<Car>>{
@@ -36,20 +35,10 @@ export class CarService {
     let newPath = this.apiUrl +`cars/getbybrandandcolor?brandId=${brandId}&colorid=${colorId}`;
     return this.httpClient.get<ListResponseModel<Car>>(newPath);
   }
-  getCarDetailsByCarId(carId:number){
-    let newPath = this.apiUrl + "cars/getcardetailsbycarid?carid=" + carId;
-    return this.httpClient
-      .get<ListResponseModel<CarDetails>>(newPath);
+  getCarDetail(carId:number):Observable<ListResponseModel<Car>>{
+    let newPath = environment.apiURL + "cars/getcardetail?carId="+carId
+    return this.httpClient.get<ListResponseModel<Car>>(newPath)
   }
-  getCarDetails(brandId:number, colorId:number){
-    let newPath = this.apiUrl + "cars/getcarsdetails?brandId=" + brandId + "&colorId=" + colorId;
-    return this.httpClient
-      .get<ListResponseModel<CarDetails>>(newPath);
-  }
-  getAllCarDetails():Observable<ListResponseModel<CarDetails>> {
-    let newPath = this.apiUrl + "cars/getcarsdetails"
-    return this.httpClient
-      .get<ListResponseModel<CarDetails>>(newPath);
-  }
+
 
 }

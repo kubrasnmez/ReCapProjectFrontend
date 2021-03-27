@@ -1,13 +1,19 @@
-
-<div class="row">
+<!--<div class="row">
     <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let car of cars">
       <div class="card h-100">
         <!-- ! Araclarin default imajlari getirilecek -->
+        <!--
         <img
-          src="{{car.imagePath}}"
+          src="{{imageBasePath}}/{{cardetail.imagePath}}"
           class="card-img-top"
           alt="..."
+          
         />
+        -->
+        <!--
+      
+          <img src = "{{imageBasePath}}/{{car.imagePath}}" alt="..." class="card-img-top"/>
+        
         <div class="card-body">
           <p class="card-text">Marka : {{ car.brandName }}</p>
           <p class="card-text">Model YIl : {{ car.modelYear }}</p>
@@ -20,9 +26,34 @@
             class="btn btn-primary"
             type="button"
             value="Details"
-            routerLink="/cardetail/{{ car.carId }}"
+            routerLink="/car/detail/{{ car.carId }}"
           />
           <input class="btn btn-primary" type="button" value="Rent" />
         </div>
       </div>
     </div>
+  -->
+
+  <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let car of cars">
+          <div  class="card" style="width: 100%;">
+              <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" alt="Araba Resmi">
+              <div class="card-body">
+                <h5 class="card-title text-center">{{car.description}}</h5>
+                <hr>
+                <p> <b>Marka :</b> {{car.brandName}} </p>
+                <hr>
+                <p> <b>Model Yılı :</b> {{car.modelYear}} </p>
+                <hr>
+                <p> <b>Günlük Fiyatı :</b> {{car.dailyPrice}} </p>
+                <hr>
+                <p> <b>Renk :</b> {{car.colorName}} </p>
+                <hr>
+                <a routerLink="/cars/detail/{{car.carId}}" class="btn btn-outline-dark mt-2">Detay</a>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+
+

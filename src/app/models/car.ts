@@ -1,3 +1,5 @@
+import { CarImage } from "./carImage";
+
 
 export interface Car{
     carId:number;
@@ -9,4 +11,5 @@ export interface Car{
     brandId:number;
     colorId:number;
     imagePath:string;
+    carImages : CarImage[];
 }
