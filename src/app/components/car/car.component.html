@@ -1,51 +1,22 @@
-<!--<div class="row">
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let car of cars">
-      <div class="card h-100">
-        <!-- ! Araclarin default imajlari getirilecek -->
-        <!--
-        <img
-          src="{{imageBasePath}}/{{cardetail.imagePath}}"
-          class="card-img-top"
-          alt="..."
-          
-        />
-        -->
-        <!--
-      
-          <img src = "{{imageBasePath}}/{{car.imagePath}}" alt="..." class="card-img-top"/>
-        
-        <div class="card-body">
-          <p class="card-text">Marka : {{ car.brandName }}</p>
-          <p class="card-text">Model YIl : {{ car.modelYear }}</p>
-          <p class="card-text">Renk : {{ car.colorName }}</p>
-          <p class="card-text">Günlük Fiyat: {{ car.dailyPrice }} ₺</p>
-          <p class="card-text">Açıklama : {{car.description}}</p>
-        </div>
-        <div class="card-footer d-flex justify-content-between">
-          <input
-            class="btn btn-primary"
-            type="button"
-            value="Details"
-            routerLink="/car/detail/{{ car.carId }}"
-          />
-          <input class="btn btn-primary" type="button" value="Rent" />
-        </div>
-      </div>
-    </div>
-  -->
-
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama ifadesi giriniz..">
+</div>
+<div *ngIf="filterText" class="alert alert-success">
+  {{filterText}} aradınız
+</div>
   <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let car of cars">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let car of cars | carFilterPipe:filterText">
           <div  class="card" style="width: 100%;">
               <img src="{{imageBasePath}}{{car.imagePath}}" class="card-img-top" alt="Araba Resmi">
               <div class="card-body">
-                <h5 class="card-title text-center">{{car.description}}</h5>
+                <h5 class="card-title text-center">{{car.description | uppercase}}</h5>
                 <hr>
-                <p> <b>Marka :</b> {{car.brandName}} </p>
+                <p> <b>Marka :</b> {{car.brandName }} </p>
                 <hr>
                 <p> <b>Model Yılı :</b> {{car.modelYear}} </p>
                 <hr>
-                <p> <b>Günlük Fiyatı :</b> {{car.dailyPrice}} </p>
+                <p> <b class="pull-left">Günlük Fiyatı :</b> {{car.dailyPrice|currency: "TRY":""}} ₺</p>
                 <hr>
                 <p> <b>Renk :</b> {{car.colorName}} </p>
                 <hr>
