@@ -1,0 +1,56 @@
+<div class="filter" align="center">
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <select class="form-select" id="brandselect"
+                    [(ngModel)]="currentBrandId"    >
+                <option 
+                    [ngValue]="undefined" disabled  selected> 
+                   --- Marka Seçiniz ---
+                </option>
+                <option 
+                    *ngFor="let brand of brands" 
+                    [value]="brand.brandId" 
+                    [selected]="setCurrentBrand(brand.brandId)">
+                    {{brand.brandName}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <br><br>
+    <div class="row">  
+        <div class="col-md-12">
+            <select class="form-select" id="colorselect"
+                    [(ngModel)]="currentColorId"  
+                    >
+                <option 
+                    [ngValue]="undefined" disabled  selected> 
+                    --- Renk Seçiniz ---
+                </option>
+                <option 
+                    *ngFor="let color of colors" 
+                    [value]="color.colorId" 
+                    [selected]="setCurrentColor(color.colorId)">
+                    {{color.colorName}}
+                </option>
+          </select>
+        </div>       
+    </div>
+    <br>
+    <div class="row pb-3">
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+            <button 
+            class="btn btn-danger"
+            routerLink="/cars/filter/{{currentBrandId}}/{{currentColorId}}" >
+                Filter
+            </button>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+            <button class="btn btn-warning"
+            routerLink="/cars">
+                Clear
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+#colorselect, #brandselect{
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    
+}
+.filter{
+    background-color:darkslategrey;
+    height: 280px;
+    border-radius: 5px;
+}

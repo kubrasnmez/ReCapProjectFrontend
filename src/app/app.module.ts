@@ -13,8 +13,10 @@ import { RentalComponent } from './components/rental/rental.component';
 import { TabComponent } from './components/tab/tab.component';
 import { CarDetailComponent } from './components/car/carDetail/car-detail.component';
 import { CarFilterPipePipe } from './pipes/car-filter-pipe.pipe';
+import { FilterComponent } from './components/filter/filter.component';
 import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
 import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
+
 
 
 
@@ -30,8 +32,10 @@ import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
     TabComponent,
     CarDetailComponent,
     CarFilterPipePipe,
+    FilterComponent,
     BrandFilterPipePipe,
     ColorFilterPipePipe,
+
   ],
   imports: [
     BrowserModule,
