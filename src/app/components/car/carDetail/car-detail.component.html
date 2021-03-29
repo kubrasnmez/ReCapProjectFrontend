@@ -2,14 +2,15 @@
 
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
+      <!--
       <button *ngFor="let image of carImages;let i = index" type="button" data-bs-target="#carouselExampleIndicators" attr.data-bs-slide-to="{{i}}" [class]="getButtonClass(image)" aria-current="true" aria-label="Slide 1"></button>
-      <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" [class]="getButtonClass(image)" aria-current="true" aria-label="Slide 1"></button>
+       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" [class]="getButtonClass(image)" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" [class]="getButtonClass(image)" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" [class]="getButtonClass(image)" aria-label="Slide 3"></button> -->
     </div>
     <div class="carousel-inner">
       <div *ngFor="let image of carImages" [class]="getCurrentImageClass(image)">
-        <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" width="640" height="480"  alt="Image">
+        <img src="{{imageBasePath}}{{image.imagePath}}" class="d-block w-100" alt="Image">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
@@ -42,9 +43,18 @@
               <td>{{car.dailyPrice}}</td>
               <td>{{car.description}}</td>
           </tr>
+
       </tbody>
     </table>
   </div>
-
     <br>
 <hr>
+<button
+id="rentButton"
+class="btn btn-dark text-light py-3"
+data-bs-toggle="modal"
+data-bs-target="#rentModal"
+(click)=rentOnClick()>
+Rent
+</button>
+<app-rental></app-rental>  

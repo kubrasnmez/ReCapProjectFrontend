@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarDetail } from 'src/app/models/car-detail';
 import { CarImage } from 'src/app/models/carImage';
@@ -16,6 +17,7 @@ import { environment } from 'src/environments/environment';
 export class CarDetailComponent implements OnInit {
 
   cars : Car[] = [];
+  car : Car;
   carImages : CarImage[] = [];
   currentImage : CarImage;
   imageBasePath  = environment.imageUrl;
@@ -24,7 +26,8 @@ export class CarDetailComponent implements OnInit {
     private carService:CarService,
     private carDetailService : CarDetailService,
     private carImageService : CarImageService,
-    private activatedRoute : ActivatedRoute
+    private activatedRoute : ActivatedRoute,
+    private toastrService : ToastrService
     
   ) { }
 
@@ -38,7 +41,7 @@ export class CarDetailComponent implements OnInit {
   }
   getCarDetail(carId: number) {
     this.carService.getCarDetail(carId).subscribe((response) => {
-      this.cars = response.data;
+      this.car = response.data;
     });
 
   }
@@ -60,5 +63,8 @@ export class CarDetailComponent implements OnInit {
     } else {
       return ""
     }
+  }
+  rentOnClick(){
+    this.toastrService.info("Lütgen müşteri ve tarih seçin");
   }
 }
