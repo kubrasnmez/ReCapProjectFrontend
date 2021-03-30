@@ -41,7 +41,8 @@ export class CarDetailComponent implements OnInit {
   }
   getCarDetail(carId: number) {
     this.carService.getCarDetail(carId).subscribe((response) => {
-      this.car = response.data;
+      this.cars = response.data;
+      
     });
 
   }
@@ -65,6 +66,6 @@ export class CarDetailComponent implements OnInit {
     }
   }
   rentOnClick(){
-    this.toastrService.info("Lütgen müşteri ve tarih seçin");
+    this.toastrService.info("Lütfen müşteri ve tarih seçin");
   }
 }

@@ -17,7 +17,7 @@
       <td>{{rental.returnDate}}</td>
   </tr>
   </table>
--->
+
 
 <div class="modal fade" id="rentModal" tabindex="-1" role="dialog" 
 aria-labelledby="rentModalLabel" aria-hidden="true">
@@ -43,7 +43,7 @@ aria-labelledby="rentModalLabel" aria-hidden="true">
           </select>
         </div>
       </div>
-      <div class="col-mb-5">
+      <div class="row mb-5">
         <div class="col">
           <label for="rent">Kira Tarih</label>
           <input id="rentDate" type="date" class="form-control" 
@@ -96,4 +96,112 @@ aria-labelledby="rentModalLabel" aria-hidden="true">
 </div>
 </div>
 </div>
+
+-->
+
+<div class="d-grid gap-2">
+  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#rentModal">
+    Aracı Kirala
+  </button>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade" id="rentModal" tabindex="-1" aria-labelledby="rentModalLabel"aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="rentModalLabel">
+          Aracı Kirala
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row mb-2">
+          <label for="example-date-input" class="col-4 col-form-label"
+            >Günlük</label
+          >
+          <div class="col-8">
+            <input
+              type="number"
+              disabled="disabled"
+              class="form-control"
+              [value]=""
+            />
+          </div>
+        </div>
+        <div class="form-group row mb-2">
+          <label for="example-date-input" class="col-4 col-form-label"
+            >Müşteri</label
+          >
+          <div class="col-8">
+            <select class="form-select" [(ngModel)]="customerId">
+              <option
+                [ngValue]="customer.customerId"
+                *ngFor="let customer of customers"
+              >
+                {{ customer.firstName }} {{ customer.lastName }} |
+                {{ customer.companyName }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row mb-2">
+           <label for = "brand" class="col-4 col-form-label">Brand</label>
+           <div class="col-8">
+             <input id="brand" type="text" readonly class="form-control" [value]="chosenCar.brandName">
+           </div>
+          </div>
+        
+        <div class="form-group row mb-2">
+          <label for="example-date-input" class="col-4 col-form-label"
+            >Başlangıç</label
+          >
+          <div class="col-8">
+            <input
+              (change)="onChangeEvent($event)"
+              min="{{ getRentMinDate() }}"
+              [(ngModel)]="rentDate"
+              type="date"
+              class="form-control"
+              id="rent-date"
+              placeholder="Bir gün seçiniz."
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="example-date-input" class="col-4 col-form-label"
+            >Bitiş</label
+          >
+          <div class="col-8">
+            <input
+              disabled="{{ !firstDateSelected }}"
+              min="{{ getReturnMinDate() }}"
+              max="{{ getReturnMaxDate() }}"
+              [(ngModel)]="returnDate"
+              type="date"
+              class="form-control"
+              id="return-date"
+              placeholder="Bir gün seçiniz."
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Kapat
+        </button>
+        <button
+          data-bs-dismiss="modal"
+          (click)="createRental()"
+          type="button"
+          class="btn btn-primary"
+        >
+          Kirala
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 

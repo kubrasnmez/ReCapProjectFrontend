@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { concat } from 'rxjs';
 import { Car } from 'src/app/models/car';
+import { CarDetail } from 'src/app/models/car-detail';
 import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
 
