@@ -1,103 +1,3 @@
-<!--
-<table class="table table-bordered">
-  <thead style="background-color:#bc8f8f;">
-    <tr>
-      <th>Kira Id</th>
-      <th>Marka Adı</th>
-      <th>Müşteri Adı ve Soyadı</th>
-      <th>Kiralama Tarihi</th>
-      <th>Teslim Tarihi</th>
-    </tr>
-  </thead>
-    <tr *ngFor = "let rental of rentals" style="background-color:rgb(228, 228, 228);">
-      <td>{{rental.rentalId}}</td>
-      <td>{{rental.brandName}}</td>
-      <td>{{rental.customerName}}</td>
-      <td>{{rental.rentDate}}</td>
-      <td>{{rental.returnDate}}</td>
-  </tr>
-  </table>
-
-
-<div class="modal fade" id="rentModal" tabindex="-1" role="dialog" 
-aria-labelledby="rentModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-  <div class="modal-content">
-    <div class="modal-header bg-dark text-light">
-      <h5 class="modal-title" id="rentModalLabel">Rental</h5>
-      <button type="button" class="close btn-danger"
-      data-bs-dismiss = "modal" aria-label = "Close">
-    <span aria-hidden = "true">&times;</span>
-    </button>
-    </div>
-    <div class="modal-body bg-light">
-      <div class="row mb-3">
-        <div class="col-md-12">
-          <select [(ngModel)] = "chosenCustomer" class="form-control px-2">
-            <option [ngValue] = "undefined" disabled selected>
-              Müşteri Seçiniz
-            </option>
-            <option *ngFor = "let customer of customers" [ngValue] = "customer">
-              {{customer.firstName}} {{customer.lastName}} - {{customer.companyName}}
-            </option>
-          </select>
-        </div>
-      </div>
-      <div class="row mb-5">
-        <div class="col">
-          <label for="rent">Kira Tarih</label>
-          <input id="rentDate" type="date" class="form-control" 
-          [(ngModel)]="rentDate" [min] = "initialDate(1)"/>
-        </div>
-        <div class="col">
-          <label for="return">Geri Dönüş Tarih</label>
-          <input id="returnDate" type="date" class="form-control"
-          [(ngModel)] = "returnDate" [min] = "initialDate(2)"/>
-        </div>
-      </div>
-      <h3>Car Details</h3>
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-          <label for="brand" class="col-form-label">Brand : </label>
-          <div>
-            <input id="brand" type="text" readonly class="form-control" [value]="chosenCar.brandName"/>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-          <label for="description" class="col-form-label">Açıklama : </label>
-          <div>
-            <input id="model" type="text" readonly class="form-control" [value] = "chosenCar.description"/>
-          </div> 
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-          <label for="dailyPrice" class="col-form-label">Günlük Fiyat : </label>
-          <div>
-            <input id="dailyPrice" type="text" readonly class="form-control" [value]="chosenCar.dailyPrice"/>
-          </div> 
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
-          <label for = "color" class="col-form-label">Renk : </label>
-          <div>
-        <input id="color" type="text" readonly class="form-control" [value] = "chosenCar.colorName"/>
-      </div>
-    </div> 
-  </div>
-</div>
-<div class="modal-footer bg-dark">
-  <button type="button" class="btn btn-secondary text-light" data-bs-dismiss="modal">
-    Return
-  </button>
-  <button (click) ="goToPayment()" type="button" class="btn btn-warning px-4" data-bs-dismiss="modal" id="rent">
-    Kirala
-  </button>
-</div>
-</div>
-</div>
-</div>
-
--->
 
 <div class="d-grid gap-2">
   <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#rentModal">
@@ -111,9 +11,7 @@ aria-labelledby="rentModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="rentModalLabel">
-        {{car.brandName }} - {{car.description}} Aracı Kirala
-        </h5>
+        <h5 class="modal-title" id="rentModalLabel"> {{car.description}}Aracı Kirala</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -128,15 +26,12 @@ aria-labelledby="rentModalLabel" aria-hidden="true">
           </div>
         </div>
         <div class="form-group row mb-2">
-          <label for="example-date-input" class="col-4 col-form-label"
-            >Müşteri</label
-          >
+          <label for="example-date-input" class="col-4 col-form-label">Müşteri</label>
           <div class="col-8">
             <select class="form-select" [(ngModel)]="customerId">
               <option
                 [ngValue]="customer.customerId"
-                *ngFor="let customer of customers"
-              >
+                *ngFor="let customer of customers">
                 {{ customer.firstName }} {{ customer.lastName }} |
                 {{ customer.companyName }}
               </option>
@@ -149,11 +44,15 @@ aria-labelledby="rentModalLabel" aria-hidden="true">
              <input id="brand" type="text" readonly class="form-control" [value]="car.brandName">
            </div>
           </div>
+        <div class="form-group row mb-2">
+          <label for="color" class="col-4 col-form-label">Color</label>
+          <div class="col-8">
+            <input id="color" type="text" readonly class="form-control" [value] ="car.colorName">
+          </div>
+        </div>
         
         <div class="form-group row mb-2">
-          <label for="example-date-input" class="col-4 col-form-label"
-            >Başlangıç</label
-          >
+          <label for="example-date-input" class="col-4 col-form-label">Başlangıç</label>
           <div class="col-8">
             <input
               (change)="onChangeEvent($event)"
@@ -189,12 +88,7 @@ aria-labelledby="rentModalLabel" aria-hidden="true">
           Kapat
         </button>
         <button
-          data-bs-dismiss="modal"
-          (click)="createRental()"
-          type="button"
-          class="btn btn-primary"
-        >
-          Kirala
+          data-bs-dismiss="modal" (click)="createRental()" type="button" class="btn btn-primary"> Kirala
         </button>
       </div>
     </div>

@@ -86,7 +86,7 @@ export class RentalComponent implements OnInit {
     }
   }
   setCustomerId(customerId: string) {
-    this.customerId = + customerId;
+    this.customerId = +customerId;
     console.log(this.customerId);
   }
   getCustomer() {
