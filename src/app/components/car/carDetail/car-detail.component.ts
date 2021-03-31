@@ -16,15 +16,13 @@ import { environment } from 'src/environments/environment';
 })
 export class CarDetailComponent implements OnInit {
 
-  cars : Car[] = [];
-  car : Car;
+  cars : Car;
   carImages : CarImage[] = [];
   currentImage : CarImage;
   imageBasePath  = environment.imageUrl;
 
   constructor(
     private carService:CarService,
-    private carDetailService : CarDetailService,
     private carImageService : CarImageService,
     private activatedRoute : ActivatedRoute,
     private toastrService : ToastrService
@@ -34,15 +32,14 @@ export class CarDetailComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
       if(params["carId"]){
-        this.getCarDetail(params["carId"]);
+        this.getCarDetailsByCarId(params["carId"]);
         this.getCarImages(params["carId"]);
       }
     })
   }
-  getCarDetail(carId: number) {
-    this.carService.getCarDetail(carId).subscribe((response) => {
-      this.cars = response.data;
-      
+  getCarDetailsByCarId(carId: number) {
+    this.carService.getCarDetailsByCarId(carId).subscribe((response) => {
+      this.cars = response.data[0];
     });
 
   }

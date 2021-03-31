@@ -33,12 +33,12 @@
           </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let car of cars">
-              <td>{{car.brandName}}</td>
-              <td>{{car.colorName}}</td>
-              <td>{{car.modelYear}}</td>
-              <td>{{car.dailyPrice}}</td>
-              <td>{{car.description}}</td>
+          <tr>
+              <td>{{cars.brandName}}</td>
+              <td>{{cars.colorName}}</td>
+              <td>{{cars.modelYear}}</td>
+              <td>{{cars.dailyPrice}}</td>
+              <td>{{cars.description}}</td>
           </tr>
 
       </tbody>
@@ -47,4 +47,4 @@
     <br>
 <hr>
 
-<app-rental></app-rental>  
+<app-rental [car]="cars"></app-rental>  

@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
-import { CarService } from 'src/app/services/car.service';
 import { CustomerService } from 'src/app/services/customer.service';
 
 
@@ -18,7 +17,6 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class RentalComponent implements OnInit {
 
   customers:Customer[];
-  chosenCar : Car;
   customerId:number;
   rentDate: Date;
   returnDate : Date;
@@ -33,18 +31,12 @@ export class RentalComponent implements OnInit {
   constructor(
     private customerService: CustomerService,
     private router: Router,
-    private carService : CarService,
     private toastrService: ToastrService,
     private datePipe: DatePipe,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      this.getCarDetails(params['carId']);
-    });
     this.getCustomer();
-    
-
   }
   getRentMinDate() {
     this.minDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
@@ -74,11 +66,11 @@ export class RentalComponent implements OnInit {
   }
   createRental() {
     let MyRental: Rental = {
-      carId : this.chosenCar.carId,
-      brandName : this.chosenCar.brandName,
-      colorName : this.chosenCar.colorName,
-      carDailyPrice : this.chosenCar.dailyPrice,
-      carDescription : this.chosenCar.description,
+      carId : this.car.carId,
+      brandName : this.car.brandName,
+      colorName : this.car.colorName,
+      carDailyPrice : this.car.dailyPrice,
+      carDescription : this.car.description,
       customerId : this.customerId,
       rentDate : this.rentDate,
       returnDate : this.returnDate,
@@ -94,7 +86,7 @@ export class RentalComponent implements OnInit {
     }
   }
   setCustomerId(customerId: string) {
-    this.customerId = +customerId;
+    this.customerId = + customerId;
     console.log(this.customerId);
   }
   getCustomer() {
@@ -103,10 +95,4 @@ export class RentalComponent implements OnInit {
       console.log(response.data);
     });
   }
-  getCarDetails(id:number){
-    this.carService.getCarDetails(id).subscribe((response) =>{
-      this.chosenCar = response.data;
-    })
-  }
-
 }
