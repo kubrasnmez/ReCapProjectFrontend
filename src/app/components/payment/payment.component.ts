@@ -22,12 +22,14 @@ export class PaymentComponent implements OnInit {
   customer : Customer;
   getCustomerId : number;
   amountOfPayment : number = 0;
+  card : Card;
+  cardExist : Boolean = false; 
+  
   nameOnTheCard : string;
   cardNumber : string;
   cardCvv : string;
   expirationDate : string;
-  card : Card;
-  cardExist : Boolean = false; 
+
 
   constructor(
     private activatedRoute : ActivatedRoute,
@@ -37,7 +39,6 @@ export class PaymentComponent implements OnInit {
     private toastrService : ToastrService,
     private rentalService : RentalService,
     private cardService : CardService
-   
   ) { }
 
   ngOnInit(): void {
@@ -48,7 +49,7 @@ export class PaymentComponent implements OnInit {
         this.getCustomerDetailById(this.getCustomerId);
         this.getCarDetail();
       }
-    })
+    });
   }
   getCustomerDetailById(customerId:number){
     this.customerService.getCustomerById(customerId).subscribe((response) =>{
@@ -64,9 +65,9 @@ export class PaymentComponent implements OnInit {
   }
   paymentCalculator(){
     if(this.rental.returnDate != null){
-      var dateReturn = new Date(this.rental.returnDate.toString());
-      var dateRent = new Date(this.rental.rentDate.toString());
-      var difference = dateReturn.getTime() - dateRent.getTime();
+      var returnDate = new Date(this.rental.returnDate.toString());
+      var rentDate = new Date(this.rental.rentDate.toString());
+      var difference = returnDate.getTime() - rentDate.getTime();
 
       var numberOfDays = Math.ceil(difference / (1000*3600*24));
 
@@ -81,18 +82,20 @@ export class PaymentComponent implements OnInit {
     }
   }
   async rentACar(){
-    let paymentCard : Card = {
+    let card : Card = {
       nameOnTheCard : this.nameOnTheCard,
       cardNumber : this.cardNumber,
       expirationDate : this.expirationDate,
       cardCvv : this.cardCvv,
     };
-    this.cardExist = await this.isCardExist(paymentCard);
+    this.cardExist = await this.isCardExist(card);
     if(this.cardExist){
       this.card = await this.getCardByCardNumber(this.cardNumber);
-      if(paymentCard.moneyInTheCard >= this.amountOfPayment){
-        paymentCard.moneyInTheCard - this.amountOfPayment;
-        this.updateCard(paymentCard);
+      console.log(this.card);
+      if(this.card.moneyInTheCard >= this.amountOfPayment){
+        this.card.moneyInTheCard = 
+        this.card.moneyInTheCard - this.amountOfPayment;
+        this.updateCard(card);
         this.rentalService.addRental(this.rental);
         this.toastrService.success('Arabayı kiraladınız.' , 'İşlem başarılı');
       }
