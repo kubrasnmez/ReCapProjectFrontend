@@ -9,6 +9,6 @@ export interface Car{
     brandId:number;
     colorId:number;
     imagePath:string;
-    status:boolean;
+    status?:boolean;
     carImages : CarImage[];
 }

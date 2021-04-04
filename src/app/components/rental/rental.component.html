@@ -11,7 +11,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="rentModalLabel"> {{car.description}}Aracı Kirala</h5>
+        <h5 class="modal-title" id="rentModalLabel"> {{car.description}} | Aracı Kirala</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -67,8 +67,7 @@
         </div>
         <div class="form-group row">
           <label for="example-date-input" class="col-4 col-form-label"
-            >Bitiş</label
-          >
+            >Bitiş</label>
           <div class="col-8">
             <input
               disabled="{{ !firstDateSelected }}"
@@ -88,7 +87,7 @@
           Kapat
         </button>
         <button
-          data-bs-dismiss="modal" (click)="createRental()" type="button" class="btn btn-primary"> Kirala
+          data-bs-dismiss="modal" (click)="createRental()" type="button" class="btn btn-success"> Kirala
         </button>
       </div>
     </div>

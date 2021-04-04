@@ -1,6 +1,6 @@
-
+<br>
 <h3 class="d-flex justify-content-center">CAR DETAILS</h3>
-
+<br>
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
      
@@ -19,9 +19,10 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  <br>
   <div class="table-responsive-md">
-    <table class="table table-striped table-hover table-bordered">
-      <thead>
+    <table class="table table-striped table-hover table-bordered" id="cardetail">
+      <thead id=cardetailhead>
           <tr>
               <th>Brand</th>
               <th>Color</th>
@@ -38,11 +39,19 @@
               <td>{{cars.dailyPrice}}</td>
               <td>{{cars.description}}</td>
           </tr>
-
       </tbody>
     </table>
   </div>
-    <br>
 <hr>
-
-<app-rental [car]="cars"></app-rental>  
+<div>
+  <div class="d-grid gap-2 mb-2">
+    <div *ngIf = "cars.status == true" class="dd-grid gap-2 mb-2">
+      <div style="margin: auto;">
+        <app-rental [car] = "cars"></app-rental>
+      </div>
+    </div>
+  </div>
+  <div class="dd-grid gap-2 mb-2" *ngIf = "cars.status == false">
+    <div class="alert alert-danger">Araç şu an kiralanamaz.</div>
+  </div>
+</div> 

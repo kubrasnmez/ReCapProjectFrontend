@@ -1,0 +1,15 @@
+
+#payment{
+    width:500px;
+}
+
+#tablerental{
+    background-color: rgba(223, 223, 223, 0.616);
+    border:2px solid  rgb(77, 160, 255);
+}
+#tablerentalthead{
+    background-color: rgb(163, 206, 255);
+}
+#card{
+    width: 500px;
+}

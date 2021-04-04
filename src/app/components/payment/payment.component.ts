@@ -98,6 +98,7 @@ export class PaymentComponent implements OnInit {
         this.updateCard(card);
         this.rentalService.addRental(this.rental);
         this.toastrService.success('Arabayı kiraladınız.' , 'İşlem başarılı');
+        this.router.navigate(['/cars']);
       }
       else{
         this.toastrService.error("Kartınızda yeterli bakiye bulunmamaktadır." , "Hata");
@@ -116,5 +117,8 @@ export class PaymentComponent implements OnInit {
   updateCard(card:Card){
     this.cardService.updateCard(card);
   }
+  cardNumberSplit() {
+    document.getElementById("card-number").innerHTML = this.cardNumber.toString().replace(/\d{4}(?=.)/g, '$& ');
 
+  }
 }
