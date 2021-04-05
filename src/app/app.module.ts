@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms'
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import{ToastrModule} from 'ngx-toastr';
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FileUploadModule} from 'ng2-file-upload';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
 import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
 import { PaymentComponent } from './components/payment/payment.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import { PaymentComponent } from './components/payment/payment.component';
     BrandFilterPipePipe,
     ColorFilterPipePipe,
     PaymentComponent,
+    CarAddComponent,
+    
 
   ],
   imports: [
@@ -46,10 +50,12 @@ import { PaymentComponent } from './components/payment/payment.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

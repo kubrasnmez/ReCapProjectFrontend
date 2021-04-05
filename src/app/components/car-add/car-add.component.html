@@ -1,0 +1,72 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">
+                        Ürün Ekle
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="carAddForm">
+                        <div class="mb-3">
+                        <label for="description">Ürün Açıklaması</label>
+                        <div class="form-group">
+                            <input type="text" id="description" 
+                            formControlName="description" class="form-control"
+                            placeholder="Araba Açıklaması"/>
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="brandId">Marka</label>
+                            <div class="form-group">
+                            <select type = "number" id="brandId" formControlName="brandId"
+                            class="form-select"  placeholder="Marka Adı">
+                        <option [ngValue] = "brand.brandId"
+                        *ngFor = "let brand of brands">{{brand.brandName}}</option>
+                        </select>
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="modelYear">Model Yılı</label>
+                            <div class="form-group">
+                                <input type="number" id="modelYear"
+                                formControlName="modelYear" class="form-control"
+                                placeholder="Model Yılı">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="colorId">Renk</label>
+                            <div class="form-group">
+                                <select type="number" id="colorId" formControlName="colorId"
+                                class="form-select" placeholder = "Renk Adı">
+                        <option [ngValue] = "color.colorId"
+                        *ngFor = "let color of colors">{{color.colorName}}</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                        <label for="dailyPrice">Günlük Fiyat</label>
+                        <div class="form-group">
+                            <input type="number" id="dailyPrice"
+                            formControlName="dailyPrice" class="form-control"
+                            placeholder="Günlük Fiyat">
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="imagePath">Resim</label>
+                            <div class="form-group">
+                                <input type="file" id="imagePath"
+                                formControlName="imagePath" class="form-control"
+                                placeholder="Resim">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-fill btn-info" (click)="add()">EKLE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
