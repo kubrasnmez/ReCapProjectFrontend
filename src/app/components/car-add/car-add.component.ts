@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder, FormControl, Validators} from "@angular/forms"
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
+import { Car } from 'src/app/models/car';
+import { CarImage } from 'src/app/models/carImage';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
+
 /*
 FormBuilder : HTML'deki form ile ts'dekini yapılandırmamızı sağlar.
 FormControl : HTML'deki giriş yapılabilecek her bir alana takabül etmektedir.
@@ -19,7 +24,6 @@ FormGroup : FormControlleri içeren bir formGroup.
 })
 export class CarAddComponent implements OnInit {
 
-  carId : number;
   brands:Brand[];
   colors:Color[];
   carAddForm : FormGroup;
@@ -72,4 +76,5 @@ export class CarAddComponent implements OnInit {
       this.colors = response.data;
     })
   }
+
 }
