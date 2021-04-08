@@ -19,7 +19,9 @@ export class CarListComponent implements OnInit {
     this.carService.getCars().subscribe((response)=>{
       this.cars = response.data
     });
-    
+  }
+  deleteCar(car : Car){
+    this.carService.delete(car).subscribe();
   }
 
 }

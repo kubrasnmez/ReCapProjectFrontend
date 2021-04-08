@@ -20,5 +20,8 @@ export class ColorListComponent implements OnInit {
       this.colors  = response.data
     })
   }
+  deleteColor(color : Color){
+    this.colorService.delete(color).subscribe();
+  }
 
 }

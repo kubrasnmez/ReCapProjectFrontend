@@ -14,6 +14,7 @@ import { ResponseModel } from '../models/responseModel';
 export class ColorService {
 
   apiUrl = environment.apiURL +'colors/';
+
   constructor(private httpClient : HttpClient) { }
 
   getColors():Observable<ListResponseModel<Color>>{
@@ -29,6 +30,10 @@ export class ColorService {
   }
   update(color:Color) : Observable<ListResponseModel<Color>>{
     let newPath = this.apiUrl + "update";
+    return this.httpClient.post<ListResponseModel<Color>>(newPath,color);
+  }
+  delete(color:Color) : Observable<ListResponseModel<Color>>{
+    let newPath = this.apiUrl + "delete";
     return this.httpClient.post<ListResponseModel<Color>>(newPath,color);
   }
 }

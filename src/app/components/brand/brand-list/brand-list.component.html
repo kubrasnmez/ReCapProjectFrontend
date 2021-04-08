@@ -11,7 +11,7 @@
           <td>{{ brand.brandName }}</td>
           <td class="operations">
             <button class="btn btn-info" routerLink="/brands/update/{{brand.brandId}}" >Güncelle</button>
-            <button class="btn btn-primary" >Sil</button>
+            <button class="btn btn-primary" (click)="deleteBrand(brand)">Sil</button>
           </td>
         </tr>
       </tbody>

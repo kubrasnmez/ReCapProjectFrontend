@@ -33,4 +33,9 @@ export class BrandService {
     let newPath = this.apiUrl + "update";
     return this.httpClient.post<ListResponseModel<Brand>>(newPath,brand);
   }
+  delete(brand : Brand):Observable<ItemResponseModel<Brand>>{
+    let newPath = this.apiUrl + "delete";
+    return this.httpClient.post<ItemResponseModel<Brand>>(newPath,brand);
+
+  }
 }

@@ -19,7 +19,7 @@
             <td>{{car.colorName}}</td>
             <td class="operations">
                 <button class="btn btn-info" routerLink="/cars/update/{{car.carId}}">Güncelle</button>
-                <button class="btn btn-primary">Sil</button>
+                <button class="btn btn-primary" (click)="deleteCar(car)">Sil</button>
             </td>
         </tr>
 

@@ -9,7 +9,7 @@
             <td>{{color.colorName}}</td>
             <td class="operations">
                 <button class="btn btn-info" routerLink="/colors/update/{{color.colorId}}">Güncelle</button>
-                <button class="btn btn-primary">Sil</button>
+                <button class="btn btn-primary" (click)="deleteColor(color)">Sil</button>
             </td>
         </tr>
     </tbody>

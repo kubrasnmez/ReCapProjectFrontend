@@ -20,5 +20,8 @@ export class BrandListComponent implements OnInit {
       this.brands = response.data
     });
   }
+  deleteBrand(brand : Brand){
+    this.brandService.delete(brand).subscribe();
+  }
 
 }
