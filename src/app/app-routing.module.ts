@@ -10,6 +10,8 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { BrandAddComponent } from './components/brand/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color/color-add/color-add.component';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
+import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
 
 const routes: Routes = [
   {path:"" , pathMatch:"full", component:CarComponent},
@@ -27,7 +29,9 @@ const routes: Routes = [
   {path:"payment/:rental",component:PaymentComponent},
   {path:"cars/add",component:CarAddComponent},
   {path:"brands/add",component:BrandAddComponent},
-  {path:"colors/add",component:ColorAddComponent}
+  {path:"colors/add",component:ColorAddComponent},
+  {path:"brands/update/:brandId",component:BrandUpdateComponent},
+  {path:"brandlist",component:BrandListComponent}
   
 ];
   

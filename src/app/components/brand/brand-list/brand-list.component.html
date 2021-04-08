@@ -1,0 +1,18 @@
+<h5>Marka Listesi</h5>
+<table class="table table-bordered table-condensed table-hover" >
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Marka</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let brand of brands">
+          <td>{{ brand.brandName }}</td>
+          <td class="operations">
+            <button class="btn btn-info" routerLink="/brands/update/{{brand.brandId}}" >Güncelle</button>
+            <button class="btn btn-primary" >Sil</button>
+          </td>
+        </tr>
+      </tbody>
+</table>
