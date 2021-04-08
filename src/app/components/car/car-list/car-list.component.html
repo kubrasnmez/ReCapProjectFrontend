@@ -1,0 +1,27 @@
+<h5>Araba Listesi</h5>
+<table class="table table-bordered table-condensed table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Açıklama  </th>
+            <th>Marka Adı</th>
+            <th>Model Yılı</th>
+            <th>Günlük Fiyat</th>
+            <th>Renk Adı</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let car of cars">
+            <td>{{car.description}}</td>
+            <td>{{car.brandName}}</td>
+            <td>{{car.modelYear}}</td>
+            <td>{{car.dailyPrice}}</td>
+            <td>{{car.colorName}}</td>
+            <td class="operations">
+                <button class="btn btn-info" routerLink="/cars/update/{{car.carId}}">Güncelle</button>
+                <button class="btn btn-primary">Sil</button>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
