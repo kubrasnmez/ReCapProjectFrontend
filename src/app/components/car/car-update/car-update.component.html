@@ -41,9 +41,13 @@
                     </div>
 
             </div>
+            <div class="mb-3">
+                <div class="form-group">
+                <app-car-image [car]="car"></app-car-image>
+            </div>
+            </div>
         </form>
     </div>
     <div class="card-footer">
         <button class="btn btn-fill btn-primary" [routerLink]="['/carlist']" (click)="updateCar()">Araba Güncelle</button>
     </div>
-</div>

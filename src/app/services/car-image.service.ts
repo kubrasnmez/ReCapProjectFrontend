@@ -12,6 +12,7 @@ import { ResponseModel } from '../models/responseModel';
 export class CarImageService {
   
   apiUrl = environment.apiURL;
+  path : string = environment.apiURL + 'carimages/';
 
   constructor(private httpClient:HttpClient) { }
 
@@ -20,13 +21,17 @@ export class CarImageService {
     return this.httpClient.get<ListResponseModel<CarImage>>(newPath)
   }
 
-  add(image: File): Observable<ResponseModel> {
-    var formData: FormData = new FormData();
-    formData.append('carId', '3');
-    formData.append('file', image);
-    console.log(image);
+  addImage(formData: FormData): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.path + 'add',formData);
+  }
+
+  updateImage(formData: FormData): Observable<ResponseModel> {
+    return this.httpClient.post<ResponseModel>(this.path + 'update', formData);
+  }
+
+  deleteImage(imageModel: CarImage): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(
-      this.apiUrl + 'carimages/add',
-      formData
+      this.path + 'delete',
+      imageModel
     );
   }}

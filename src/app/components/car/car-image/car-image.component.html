@@ -1,0 +1,83 @@
+<div class="card" *ngIf = "carImages">
+    <div class="card-header">
+        <h5 class="title">Araç Resimleri</h5>
+    </div>
+    <div class="card-body">
+        <div class="d-flex flex-wrap gap-3">
+            <div id="image-wrapper" *ngFor="let carImage of carImages">
+                <form [formGroup] = "carImageUpdateForm">
+                    <input style="display: none;" type="file" id="carImageUpdate" name="carImageUpdate"
+                    accept="image/x-png, image/jpeg" class="form-control" formControlName="image"
+                    (change) = "updateImage($event)" />
+                    <img [src] = "baseUrl + carImage.imagePath"  width="100%"
+                    (click)="setImageToUpdate(carImage)" 
+                    />
+                    <span
+                    id="image-delete"
+                    data-bs-toggle="modal"
+                    data-bs-target="#deleteImage"
+                    (click)="setImageToDelete(carImage)"
+                    >
+                  </span>
+                </form>  
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="row">
+            <form [formGroup] = "carImageAddForm" class="form col-md-10">
+                <div class="mb-3">
+                    <input
+                      type="file"
+                      id="carImageAdd"
+                      name="carImageAdd"
+                      accept="image/x-png, image/jpeg"
+                      class="form-control"
+                      formControlName="image"
+                      (change)="onFileSelected($event)"
+                    />
+                  </div>
+            </form>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" (click)="addImage()">
+                  Yukle
+                </button>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div
+  class="modal fade"
+  id="deleteImage"
+  tabindex="-1"
+  aria-labelledby="deleteImageLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteImageLabel">Gorseli Sil</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Gorseli silmek istediginizden emin misiniz?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Iptal
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="deleteImage(imageToDelete)"
+        >
+          Evet, sil
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

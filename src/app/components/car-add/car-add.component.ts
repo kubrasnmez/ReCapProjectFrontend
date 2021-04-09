@@ -26,6 +26,7 @@ export class CarAddComponent implements OnInit {
 
   brands:Brand[];
   colors:Color[];
+  position : string;
   carAddForm : FormGroup;
 
   constructor(private formBuilder:FormBuilder, 
@@ -76,5 +77,4 @@ export class CarAddComponent implements OnInit {
       this.colors = response.data;
     })
   }
-
 }
