@@ -1,25 +1,29 @@
-<h5>Araba Listesi</h5>
+<h3 style="text-align: center;">ARABA LİSTESİ</h3>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-info" routerLink = "/cars/add" type="button"><b>EKLE</b></button>
+  </div>
+  <br>
 <table class="table table-bordered table-condensed table-hover">
     <thead class="thead-dark">
-        <tr>
+        <tr style="text-align: center;">
             <th>Açıklama  </th>
             <th>Marka Adı</th>
             <th>Model Yılı</th>
             <th>Günlük Fiyat</th>
             <th>Renk Adı</th>
-            <th>İşlemler</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let car of cars">
+        <tr *ngFor = "let car of cars" style="text-align: center;">
             <td>{{car.description}}</td>
             <td>{{car.brandName}}</td>
             <td>{{car.modelYear}}</td>
             <td>{{car.dailyPrice}}</td>
             <td>{{car.colorName}}</td>
-            <td class="operations">
-                <button class="btn btn-info" routerLink="/cars/update/{{car.carId}}">Güncelle</button>
-                <button class="btn btn-primary" (click)="deleteCar(car)">Sil</button>
+            <td><button class="btn btn-warning" routerLink="/cars/update/{{car.carId}}">Güncelle</button></td>
+            <td><button class="btn btn-danger" (click)="deleteCar(car)">Sil</button>
             </td>
         </tr>
 

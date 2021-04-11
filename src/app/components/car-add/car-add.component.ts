@@ -48,7 +48,6 @@ export class CarAddComponent implements OnInit {
       brandId:["",Validators.required],
       colorId:["",Validators.required],
       modelYear:["",Validators.required],
-      imagePath : ["",Validators.required]
     })
   }
   add(){

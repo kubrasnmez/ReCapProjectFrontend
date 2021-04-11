@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import{ToastrModule} from 'ngx-toastr';
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -32,6 +32,8 @@ import { ColorUpdateComponent } from './components/color/color-update/color-upda
 import { CarListComponent } from './components/car/car-list/car-list.component';
 import { CarUpdateComponent } from './components/car/car-update/car-update.component';
 import { CarImageComponent } from './components/car/car-image/car-image.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 @NgModule({
@@ -60,8 +62,7 @@ import { CarImageComponent } from './components/car/car-image/car-image.componen
     CarListComponent,
     CarUpdateComponent,
     CarImageComponent,
-    
-
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,7 +76,9 @@ import { CarImageComponent } from './components/car/car-image/car-image.componen
     BrowserAnimationsModule,
     FileUploadModule
   ],
-  providers: [],
+  providers: [{
+    provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

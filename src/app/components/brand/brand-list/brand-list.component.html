@@ -1,18 +1,24 @@
-<h5>Marka Listesi</h5>
+<h4 style="text-align: center;">MARKA LİSTESİ</h4>
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-info" routerLink = "/brands/add" type="button"><b>EKLE</b></button>
+</div>
+<br>
 <table class="table table-bordered table-condensed table-hover" >
     <thead class="thead-dark">
-        <tr>
+        <tr style="text-align: center;">
             <th scope="col">Marka</th>
-            <th scope="col">İşlemler</th>
+            <th scope="col">Güncelle</th>
+            <th scope = "col">Sil</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let brand of brands">
+        <tr *ngFor="let brand of brands" style="text-align: center;">
           <td>{{ brand.brandName }}</td>
-          <td class="operations">
-            <button class="btn btn-info" routerLink="/brands/update/{{brand.brandId}}" >Güncelle</button>
-            <button class="btn btn-primary" (click)="deleteBrand(brand)">Sil</button>
+          <td>
+            <button class="btn btn-warning" routerLink="/brands/update/{{brand.brandId}}">Güncelle</button>
           </td>
+          <td><button class="btn btn-danger" (click)="deleteBrand(brand)">Sil</button></td>
         </tr>
       </tbody>
 </table>
