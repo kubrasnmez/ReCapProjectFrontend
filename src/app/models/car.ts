@@ -11,4 +11,6 @@ export interface Car{
     imagePath:string;
     status?:boolean;
     carImages : CarImage[];
+    carFindex : number;
+    customerindex : number;
 }

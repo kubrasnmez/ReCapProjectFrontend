@@ -1,0 +1,63 @@
+<div class="container py-5" id="hanging-icons">
+  <h2 class="pb-2 border-bottom">User Panel</h2>
+  <div class="row g-5 py-5">
+    <div class="col-md-5 d-flex align-items-start">
+      <div
+        class="icon-square bg-light flex-shrink-0 me-3"
+        style="margin-right: 20px"
+      >
+        <i class="bi bi-person-circle"></i>
+      </div>
+      <div>
+        <h4>Update Profile</h4>
+        <p>Paragraph of text beneath the heading to explain the heading.</p>
+        <app-user-profile></app-user-profile>
+      </div>
+    </div>
+    <div class="col-md-5 d-flex align-items-start">
+      <div
+        class="icon-square bg-light flex-shrink-0 me-3"
+        style="margin-right: 20px"
+      >
+        <i class="bi bi-credit-card"></i>
+      </div>
+      <div>
+        <h4>Add Credit Card</h4>
+        <p>Paragraph of text beneath the heading to explain the heading.</p>
+        <app-card></app-card>
+      </div>
+    </div>
+
+   
+    <div class="col-md-6 align-items-start" style="margin-top: 80px;">
+      <div class="alert alert-success" role="alert">
+        <i class="bi bi-credit-card-2-front" style="font-size: 20px; font-weight: 600;"></i> &nbsp; List of Credit Card
+      </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Owner Name & Surname</th>
+          <th scope="col">Credit Card Number</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        
+        <tr *ngFor="let card of cards">
+          <td>{{ card.nameOnTheCard }}</td>
+          <td>{{ card.cardNumber }}</td>
+
+          <td>
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="deleteCard(card.cardId)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import{ToastrModule} from 'ngx-toastr';
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FileUploadModule} from 'ng2-file-upload';
-
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +35,10 @@ import { CarImageComponent } from './components/car/car-image/car-image.componen
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
-
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,10 @@ import { RegisterComponent } from './components/register/register.component';
     CarImageComponent,
     LoginComponent,
     RegisterComponent,
+    ChangePasswordComponent,
+    UserProfileComponent,
+    ProfileComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +83,8 @@ import { RegisterComponent } from './components/register/register.component';
       positionClass:"toast-bottom-right"
     }),
     BrowserAnimationsModule,
-    FileUploadModule
+    FileUploadModule,
+    FontAwesomeModule
   ],
   providers: [{
     provide : HTTP_INTERCEPTORS, useClass : AuthInterceptor, multi:true

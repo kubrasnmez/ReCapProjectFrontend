@@ -6,4 +6,6 @@ export interface Customer{
     companyName:string;
     email : string;
     status:boolean;
+    customerFindex : number;
+
 }

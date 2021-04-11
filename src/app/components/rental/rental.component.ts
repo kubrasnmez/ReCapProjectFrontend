@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { Customer } from 'src/app/models/customer';
 import { Rental } from 'src/app/models/rental';
+import { AuthService } from 'src/app/services/auth.service';
 import { CustomerService } from 'src/app/services/customer.service';
 
 
@@ -30,6 +31,7 @@ export class RentalComponent implements OnInit {
 
   constructor(
     private customerService: CustomerService,
+    private authService : AuthService,
     private router: Router,
     private toastrService: ToastrService,
     private datePipe: DatePipe,

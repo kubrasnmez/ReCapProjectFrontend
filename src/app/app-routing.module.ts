@@ -19,6 +19,8 @@ import { CarUpdateComponent } from './components/car/car-update/car-update.compo
 import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
 import { RegisterComponent } from './components/register/register.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {path:"" , pathMatch:"full", component:CarComponent},
@@ -44,7 +46,8 @@ const routes: Routes = [
   {path:"carlist",component:CarListComponent},
   {path:"cars/update/:carId",component:CarUpdateComponent},
   {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent}
+  {path:"register",component:RegisterComponent},
+  {path:"profile",component:ProfileComponent}
   
 ];
   
