@@ -18,6 +18,7 @@ import { CarListComponent } from './components/car/car-list/car-list.component';
 import { CarUpdateComponent } from './components/car/car-update/car-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {path:"" , pathMatch:"full", component:CarComponent},
@@ -42,7 +43,8 @@ const routes: Routes = [
   {path:"colorlist",component:ColorListComponent},
   {path:"carlist",component:CarListComponent},
   {path:"cars/update/:carId",component:CarUpdateComponent},
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+  {path:"register",component:RegisterComponent}
   
 ];
   
